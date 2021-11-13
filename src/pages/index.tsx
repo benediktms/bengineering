@@ -4,13 +4,14 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Heading, Text } from "@chakra-ui/layout"
 
-const IndexPage = () => (
+const IndexPage: React.FC = () => (
   <Layout>
     <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <Heading>Hi people</Heading>
+    <Text>Welcome to your new Gatsby site.</Text>
+    <Text>Now go build something great.</Text>
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
@@ -19,12 +20,12 @@ const IndexPage = () => (
       alt="A Gatsby astronaut"
       style={{ marginBottom: `1.45rem` }}
     />
-    <p>
+    <Text>
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
       <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
       <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
+    </Text>
   </Layout>
 )
 
