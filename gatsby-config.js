@@ -33,17 +33,7 @@ module.exports = {
       },
     },
     "@chakra-ui/gatsby-plugin",
-    {
-      resolve: `gatsby-plugin-typegen`,
-      options: {
-        emitSchema: {
-          "src/__generated__/gatsby-introspection.json": true,
-        },
-        emitPluginDocuments: {
-          "src/__generated__/gatsby-plugin-documents.graphql": true,
-        },
-      },
-    },
+    "gatsby-plugin-ts",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
