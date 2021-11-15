@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: "Bengineering",
+    description:
+      "The Web. The final frontier. These are the voyages of Ben. His neverending mission: To expolore strange new technologies. To seek out new knowledge and new best coding practises. To go boldly where so many others have probably gone before",
+    author: "@benediktms",
+    siteUrl: "https://bengineering.dev",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -32,6 +33,17 @@ module.exports = {
       },
     },
     "@chakra-ui/gatsby-plugin",
+    {
+      resolve: `gatsby-plugin-typegen`,
+      options: {
+        emitSchema: {
+          "src/__generated__/gatsby-introspection.json": true,
+        },
+        emitPluginDocuments: {
+          "src/__generated__/gatsby-plugin-documents.graphql": true,
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
