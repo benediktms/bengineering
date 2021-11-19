@@ -80,7 +80,12 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
             ].concat(meta)
           : undefined
       }
-    />
+    >
+      <script
+        src="https://kit.fontawesome.com/58df6eefbf.js"
+        crossOrigin="anonymous"
+      ></script>
+    </Helmet>
   )
 }
 

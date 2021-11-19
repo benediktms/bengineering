@@ -1,38 +1,46 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link as ReachLink } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import { Heading, Text } from "@chakra-ui/layout"
-import { Button, useColorMode } from "@chakra-ui/react"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
+import { Box, Text, WrapItem } from "@chakra-ui/layout"
+import { HStack, Link } from "@chakra-ui/react"
 
 const IndexPage: React.FC = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
-
   return (
     <Layout>
       <Seo title="Home" />
-      <Heading>Hi people</Heading>
-      <Text>Welcome to your new Gatsby site.</Text>
-      <Text>Now go build something great.</Text>
-      <StaticImage
-        src="../images/gatsby-astronaut.png"
-        width={300}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt="A Gatsby astronaut"
-        style={{ marginBottom: `1.45rem` }}
-      />
-      <Text>
-        <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-        <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-        <Link to="/using-dsg">Go to "Using DSG"</Link>
-      </Text>
-      <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
+      <HStack spacing={4} mb={5}>
+        <WrapItem>
+          <StaticImage
+            style={{ borderRadius: "50%" }}
+            src="../images/avatar.jpg"
+            width={400}
+            alt="Benedikt"
+          />
+        </WrapItem>
+
+        <Box>
+          <Text>
+            My name is Benedikt, I'm a full-stack developer working for{" "}
+            <Link as={ReachLink} to="https://www.gotu.io" color="teal.500">
+              GotU.io
+            </Link>
+            . Here I talk about code and other things that interest me. If you
+            spot something that is wrong or think something could be better,{" "}
+            <Link
+              as={ReachLink}
+              to="https://github.com/benediktms/bengineering/issues/new"
+              color="teal.500"
+            >
+              let me know
+            </Link>
+            .
+          </Text>
+          <Text></Text>
+        </Box>
+      </HStack>
     </Layout>
   )
 }
