@@ -34,7 +34,8 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
 
   const metaDescription =
     description || (siteMetadata && siteMetadata.description) || "Description"
-  const metaTitle = title || (siteMetadata && siteMetadata.title) || "Title"
+  const metaTitle =
+    title || (siteMetadata && siteMetadata.title) || "Bengineering"
 
   return (
     <Helmet
@@ -80,7 +81,12 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
             ].concat(meta)
           : undefined
       }
-    />
+    >
+      <script
+        src="https://kit.fontawesome.com/58df6eefbf.js"
+        crossOrigin="anonymous"
+      ></script>
+    </Helmet>
   )
 }
 
