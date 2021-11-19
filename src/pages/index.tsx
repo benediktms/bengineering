@@ -10,7 +10,7 @@ import { HStack, Link } from "@chakra-ui/react"
 const IndexPage: React.FC = () => {
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo />
       <HStack spacing={4} mb={5}>
         <WrapItem>
           <StaticImage

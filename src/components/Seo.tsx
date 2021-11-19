@@ -34,7 +34,8 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
 
   const metaDescription =
     description || (siteMetadata && siteMetadata.description) || "Description"
-  const metaTitle = title || (siteMetadata && siteMetadata.title) || "Title"
+  const metaTitle =
+    title || (siteMetadata && siteMetadata.title) || "Bengineering"
 
   return (
     <Helmet

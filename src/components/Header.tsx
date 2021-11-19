@@ -4,10 +4,10 @@ import {
   Container,
   Heading,
   HStack,
+  IconButton,
   Link,
   useColorMode,
 } from "@chakra-ui/react"
-import { DarkModeToggle } from "react-dark-mode-toggle-2"
 
 type Props = {
   siteTitle: string
@@ -37,12 +37,16 @@ const Header: React.FC<Props> = ({ siteTitle }) => {
             >
               <i className="fab fa-twitter"></i>
             </Link>
-            <DarkModeToggle
-              onChange={toggleColorMode}
-              isDarkMode={colorMode === "light"}
-              size={60}
-              speed={1.7}
-            />
+            <IconButton
+              aria-label="toggle-color-mode"
+              onClick={toggleColorMode}
+            >
+              {colorMode === "dark" ? (
+                <i className="fas fa-sun"></i>
+              ) : (
+                <i className="fas fa-moon"></i>
+              )}
+            </IconButton>
           </HStack>
         </HStack>
       </Container>
