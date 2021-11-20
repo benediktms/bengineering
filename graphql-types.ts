@@ -3759,6 +3759,13 @@ export type SiteQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type SiteQuery = { site?: { siteMetadata?: { title?: string | null | undefined, description?: string | null | undefined, author?: string | null | undefined } | null | undefined } | null | undefined };
 
+export type GetBlogPostQueryVariables = Exact<{
+  id?: Maybe<Scalars['String']>;
+}>;
+
+
+export type GetBlogPostQuery = { mdx?: { body: string, frontmatter?: { date?: any | null | undefined, title: string } | null | undefined } | null | undefined };
+
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
