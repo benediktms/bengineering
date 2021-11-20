@@ -1,8 +1,8 @@
-import React from "react"
-import { Heading, Link, Text } from "@chakra-ui/layout"
-import { Link as ReachLink } from "gatsby"
-import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+import React from 'react';
+import { Heading, Link, Text } from '@chakra-ui/layout';
+import { Link as ReachLink } from 'gatsby';
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 
 const about: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const about: React.FC = () => {
         </Link>
       </Seo>
     </Layout>
-  )
-}
+  );
+};
 
-export default about
+export default about;
