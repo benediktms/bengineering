@@ -8,6 +8,7 @@ import { HStack, Link } from '@chakra-ui/react';
 import { Query } from '../../graphql-types';
 import { PostLink } from '../components/PostLink';
 import { PhotoAvatar } from '../components/PhotoAvatar';
+import { StyledLink } from '../components/StyledLink';
 
 const IndexPage: React.FC = () => {
   const { allMdx } = useStaticQuery<Query>(graphql`
@@ -37,18 +38,12 @@ const IndexPage: React.FC = () => {
           <Text>
             Hi there! My name is Benedikt, I&aposm a full-stack developer
             working for{' '}
-            <Link as={ReachLink} to="https://www.gotu.io" color="teal.500">
-              GotU.io
-            </Link>
-            . Here I talk about code and other things that interest me. If you
-            spot something that is wrong or think something could be better,{' '}
-            <Link
-              as={ReachLink}
-              to="https://github.com/benediktms/bengineering/issues/new"
-              color="teal.500"
-            >
+            <StyledLink to="https://www.gotu.io">GotU.io</StyledLink>. Here I
+            talk about code and other things that interest me. If you spot
+            something that is wrong or think something could be better,{' '}
+            <StyledLink to="https://github.com/benediktms/bengineering/issues/new">
               let me know
-            </Link>
+            </StyledLink>
             .
           </Text>
         </Box>

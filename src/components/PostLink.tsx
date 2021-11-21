@@ -3,6 +3,7 @@ import { Link as ReachLink } from 'gatsby';
 import { Link } from '@chakra-ui/react';
 import React from 'react';
 import { Mdx, MdxFrontmatter } from '../../graphql-types';
+import { StyledLink } from './StyledLink';
 
 type Props = {
   frontmatter: MdxFrontmatter;
@@ -13,9 +14,7 @@ export const PostLink: React.FC<Props> = ({ frontmatter, slug }) => {
   return (
     <>
       <Heading size="md" variant="h3">
-        <Link as={ReachLink} to={`/blog/${slug}`}>
-          {frontmatter.title}
-        </Link>
+        <StyledLink to={`/blog/${slug}`}>{frontmatter.title}</StyledLink>
       </Heading>
       <Box>{frontmatter.date}</Box>
     </>
