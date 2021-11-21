@@ -1,5 +1,5 @@
-import React from "react"
-import { Link as ReachLink } from "gatsby"
+import React from 'react';
+import { Link as ReachLink } from 'gatsby';
 import {
   Container,
   Heading,
@@ -7,15 +7,15 @@ import {
   IconButton,
   Link,
   useColorMode,
-} from "@chakra-ui/react"
+} from '@chakra-ui/react';
 
 type Props = {
-  siteTitle: string
-}
+  siteTitle: string;
+};
 
 const Header: React.FC<Props> = ({ siteTitle }) => {
-  const { colorMode, toggleColorMode } = useColorMode()
-  const iconStyle: React.CSSProperties = { fontSize: "30px" }
+  const { colorMode, toggleColorMode } = useColorMode();
+  const iconStyle: React.CSSProperties = { fontSize: '30px' };
 
   return (
     <header>
@@ -41,7 +41,7 @@ const Header: React.FC<Props> = ({ siteTitle }) => {
               aria-label="toggle-color-mode"
               onClick={toggleColorMode}
             >
-              {colorMode === "dark" ? (
+              {colorMode === 'dark' ? (
                 <i className="fas fa-sun"></i>
               ) : (
                 <i className="fas fa-moon"></i>
@@ -51,7 +51,7 @@ const Header: React.FC<Props> = ({ siteTitle }) => {
         </HStack>
       </Container>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
