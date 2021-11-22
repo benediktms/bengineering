@@ -36,10 +36,9 @@ const IndexPage: React.FC = () => {
         <PhotoAvatar />
         <Box>
           <Text>
-            Hi there! My name is Benedikt, I&aposm a full-stack developer
-            working for{' '}
-            <StyledLink to="https://www.gotu.io">GotU.io</StyledLink>. Here I
-            talk about code and other things that interest me. If you spot
+            Hi there! My name is Benedikt, I'm a full-stack developer working
+            for <StyledLink to="https://www.gotu.io">GotU.io</StyledLink>. Here
+            I talk about code and other things that interest me. If you spot
             something that is wrong or think something could be better,{' '}
             <StyledLink to="https://github.com/benediktms/bengineering/issues/new">
               let me know
