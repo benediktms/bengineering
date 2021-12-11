@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { graphql, Link as ReachLink, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import { Box, Text } from '@chakra-ui/layout';
-import { HStack, Link } from '@chakra-ui/react';
+import { HStack } from '@chakra-ui/react';
 import { Query } from '../../graphql-types';
 import { PostLink } from '../components/PostLink';
 import { PhotoAvatar } from '../components/PhotoAvatar';
