@@ -60,8 +60,11 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
+              inlineCodeMarker: `›`,
+              aliases: {
+                ts: 'typescript',
+                tsx: 'typescriptreact',
+              },
               showLineNumbers: false,
               noInlineHighlight: false,
               prompt: {

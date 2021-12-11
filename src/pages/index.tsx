@@ -34,7 +34,7 @@ const IndexPage: React.FC = () => {
       <Seo />
       <HStack spacing={4} mb={[5, 10, 20]}>
         <PhotoAvatar />
-        <Box>
+        <Box maxW={{ base: 600 }}>
           <Text>
             Hi there! My name is Benedikt, I'm a full-stack developer working
             for <StyledLink to="https://www.gotu.io">GotU.io</StyledLink>. Here

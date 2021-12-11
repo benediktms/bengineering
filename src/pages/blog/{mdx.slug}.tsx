@@ -7,6 +7,7 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import { MDXProvider } from '@mdx-js/react';
 import { StyledLink } from '../../components/StyledLink';
+import { Heading1, Heading2, Heading3 } from '../../components/Headings';
 
 type Props = {
   data: Query;
@@ -16,12 +17,17 @@ const BlogPost: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <Seo title={data.mdx?.frontmatter?.title}>
-        <Heading>{data.mdx?.frontmatter?.title}</Heading>
+        <Heading as="h1" variant="h1">
+          {data.mdx?.frontmatter?.title}
+        </Heading>
         <Box mb={5}>{data.mdx?.frontmatter?.date}</Box>
         {data.mdx && data.mdx.body && (
           <MDXProvider
             components={{
               a: StyledLink,
+              h1: Heading1,
+              h2: Heading2,
+              h3: Heading3,
             }}
           >
             <MDXRenderer>{data.mdx.body}</MDXRenderer>

@@ -26,7 +26,7 @@ const Layout: React.FC = ({ children }) => {
     <>
       <Header siteTitle={siteMetadata?.title || `Bengineering`} />
 
-      <Container>
+      <Container maxW="container.lg">
         <main>{children}</main>
         <footer
           style={{
