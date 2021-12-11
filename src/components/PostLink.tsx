@@ -16,7 +16,7 @@ export const PostLink: React.FC<Props> = ({ frontmatter, slug }) => {
       <Heading size="md" variant="h3">
         <StyledLink to={`/blog/${slug}`}>{frontmatter.title}</StyledLink>
       </Heading>
-      <Box>{frontmatter.date}</Box>
+      <Box mb={5}>{frontmatter.date}</Box>
     </>
   );
 };
