@@ -115,7 +115,7 @@ type PropertyNotNullable<T, TKey extends keyof T> = T & {
 };
 
 function propertyIsNotNullOrUndefined<T, TKey extends keyof T>(key: TKey) {
-  return function (obj: T): obj is PropNonNullable<T, TKey> {
+  return function (obj: T): obj is PropertyNotNullable<T, TKey> {
     return obj[key] !== null && typeof obj[key] !== 'undefined';
   };
 }
