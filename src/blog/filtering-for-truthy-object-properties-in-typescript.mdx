@@ -3,6 +3,8 @@ title: 'Filtering for truthy object properties in TypeScript'
 date: '2021-12-11'
 ---
 
+import { StyledLink } from '../components/StyledLink.tsx';
+
 I started learning how to code using Ruby on Rails and JavaScript. So for the
 first year or so of my coding 'career' I had only used dynamic languages. Eventually
 I learned about React's PropTypes and though 'Wow this is cool, it adds safety!'. In
@@ -73,17 +75,30 @@ after filtering) this still won't work. For example:
 filteredCats.map(cat => cat.name.split()); // Object is possibly 'undefined'.(2532)
 ```
 
-How can we get around this? Since the compiler can't dynamically create new
-types, we need to handle this. At GotU we found that the best way to do this
-is via TypeScript [type narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#typeof-type-guards)
-and helper functions.
+How can we get around this? Since the compiler can't dynamically create new types,
+we need to handle this. At GotU we found that the best way to do this is via TypeScript
+
+<StyledLink
+  to={
+    'https://www.typescriptlang.org/docs/handbook/2/narrowing.html#typeof-type-guards'
+  }
+>
+  type narrowing
+</StyledLink> and helper functions.
 
 ### Niche helper function
 
 In order to tell TypeScript that we want to filter for cats that have a name we can
-use [type predicates](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates)
-where we tell the compiler exactly what shape the returned object needs to be using
-the type predicate syntax:
+use
+
+<StyledLink
+  to={
+    'https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates'
+  }
+>
+  type predicates
+</StyledLink> where we tell the compiler exactly what shape the returned object needs
+to be using the type predicate syntax:
 
 ```ts
 function catWithName(
@@ -131,11 +146,18 @@ a standard JavaScript type guard to ensure the property is not `null` or `undefi
 <br />
 
 The type that we define also has some funky stuff going on. Similar to the function,
-the type is generic over an object(`T`) and it's keys (`TKey`). However using [mapped type modifiers](https://www.typescriptlang.org/docs/handbook/release-notes/overview.html#improved-control-over-mapped-type-modifiers)
-we can remove the optionality identifier (the `?`) with the `-`. The type then is equal
-to the object `T` but overrides every key with a new type `P` that is no longer optional
-and returns a non-nullable value (So this were to also work if the `name` property in `Cat`
-was `name: string | undefined`).
+the type is generic over an object(`T`) and it's keys (`TKey`). However using
+
+<StyledLink
+  to={
+    'https://www.typescriptlang.org/docs/handbook/release-notes/overview.html#improved-control-over-mapped-type-modifiers'
+  }
+>
+  mapped type modifiers
+</StyledLink> we can remove the optionality identifier (the `?`) with the `-`. The
+type then is equal to the object `T` but overrides every key with a new type `P`
+that is no longer optional and returns a non-nullable value (So this were to also
+work if the `name` property in `Cat` was `name: string | undefined`).
 
 <br />
 

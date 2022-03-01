@@ -24,7 +24,6 @@ const BlogPost: React.FC<Props> = ({ data }) => {
         {data.mdx && data.mdx.body && (
           <MDXProvider
             components={{
-              a: StyledLink,
               h1: Heading1,
               h2: Heading2,
               h3: Heading3,
