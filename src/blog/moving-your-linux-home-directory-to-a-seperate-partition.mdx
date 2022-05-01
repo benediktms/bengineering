@@ -1,0 +1,64 @@
+---
+title: 'Moving your Linux home directory to a separate partition'
+date: '2022-05-01'
+---
+
+import { StyledLink } from '../components/StyledLink.tsx';
+
+<StyledLink to="https://www.youtube.com/watch?v=tEnnEhziLn8&t=177s&ab_channel=DistroTube">
+  Reference video from DistroTube
+</StyledLink>
+
+<br />
+<br />
+
+Moving the home directory to a separate partition
+(or a separate drive) can solve the problem of backing up
+and restoring data/configs when installing, as new distro.
+
+<br />
+
+It is relatively simple to do with a new installation,
+since you can choose the mount points.
+
+1. The new home partition needs to be properly formatted as a new drive. You can use GParted or a similar tool to set this up
+2. check which blocks are available with `lsblk`. Your root partition as well as your empty drive should be visible
+   1. assuming you have 2 partitions your current Linux installation should be in `sda/sda1` and your new partition should be `sdb`
+3. You will need a new temporary directory and mount it:
+   ```
+   sudo mkdir /mnt/tmp
+   sudo mount /dev/sdb1 /mnt/tmp
+   ```
+4. You will then need to copy your home directory to the temporary partition:
+   ```
+   sudo rsync -av /home/ /mnt/tmp
+   ```
+5. Mount the new partition:
+   ```
+   sudo mount /dev/sdb1 /home
+   ```
+6. Check that all your files are in the home directory
+7. Unmount (in lazy mode if necessary) the new home directory:
+   ```
+   sudo umount -l /home
+   ```
+8. Drop into a TTY prompt and log in
+9. Remove your home directory (MAKE SURE YOU TARGET THE CORRECT FOLDER!!):
+   ```
+   sudo rm -rf /home/*
+   ```
+   - Alternatively you can simply rename your home directory and create a new empty directory as the mount point:
+     ```
+     sudo mv /home /homebackup
+     sudo mkdir /home
+     ```
+10. Add the new home directory to the `fstab`:
+    ```
+    sudo blkid
+    ```
+    - Copy the UUID for your new partition, in this example it would be `sdb1`
+    ```
+    sudo vim /etc/fstab
+    ```
+    - Paste the UUID (including the string "UUID=") onto the last line (`file system`). Set the mount point (`type`) to `/home` enter the the file system type (`options`), probably `ext4`, and set the `dummp` to `defaults` and `pass` to 0 2
+11. Reboot the machine. You should have a home directory. Check your mounts to ensure you are actually using the right home directory `cat /proc/mounts`
